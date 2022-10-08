@@ -5,7 +5,6 @@
 This is a non-comprehensive list of resources for those who wish to learn more about the decolonial design project in the making of the pluriverse. Feel free to add your own resources at the bottom of this document. 
 
 -------
--------
 
 ## 💚 Collectives 
 
