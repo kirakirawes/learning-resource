@@ -8,11 +8,16 @@ This is a non-comprehensive list of resources for those who wish to learn more a
 
 ## 💚 Collectives 
 
-Decolonising Design:  https://www.decolonisingdesign.com/ 
+Decolonising Design: https://www.decolonisingdesign.com/ 
+
 Depatriarchise Design: https://depatriarchisedesign.com/
+
 Design Justice: https://designjustice.org/
+
 Decolonise ALL the Things: https://decolonizeallthethings.com/
+
 Decolonising Reader: https://docs.google.com/document/d/1Hbymt6a3zz044xF_LCqGfTmXJip3cetj5sHlxZEjtJ4/edit
+
 Futuress: https://futuress.org/
 
 
