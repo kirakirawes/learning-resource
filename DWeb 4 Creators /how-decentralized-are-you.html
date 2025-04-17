@@ -1,0 +1,429 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How Decentralized Are You?</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #70e36f;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2 {
+        color: #fc46cc;
+        text-align: center;
+      }
+
+      .question {
+        margin: 1.5rem 0;
+      }
+      .question h3 {
+        margin-bottom: 0.5rem;
+      }
+      label {
+        display: block;
+        margin: 0.25rem 0;
+      }
+      button {
+        display: block;
+        margin: 2rem auto 0;
+        padding: 0.75rem 2rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      #results {
+        display: none;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>How Decentralized Are You?</h1>
+      <form id="quiz-form">
+        <!-- Questions will be injected here -->
+      </form>
+      <button onclick="calculateScore()">Submit</button>
+      <div id="results">
+        <h2>Your Result</h2>
+        <p id="result-text"></p>
+      </div>
+    </div>
+    <script>
+      const questions = [
+        {
+          section: "Communication",
+          items: [
+            {
+              text: "How do you access the Internet?",
+              options: [
+                { text: "a. Major Internet Service Providers (ISP)", score: 1 },
+                { text: "b. ISP with VPN", score: 2 },
+                {
+                  text: "c. Mesh network, community ISP, self-hosted gateways",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+            {
+              text: "What do you primarily use for messaging and emails?",
+              options: [
+                {
+                  text: "a. Mainstream apps (e.g. WhatsApp, Gmail, Facebook Messenger)",
+                  score: 1,
+                },
+                {
+                  text: "b. Encrypted but centralized services (e.g., Signal, ProtonMail)",
+                  score: 2,
+                },
+                {
+                  text: "c. Federated or peer-to-peer systems (e.g., Matrix/Element, Delta Chat, XMPP)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+                { text: "e. A combination of (a), (b), and (c)", score: 2.5 },
+              ],
+            },
+            {
+              text: "Who owns your communication data?",
+              options: [
+                {
+                  text: "a. Big tech companies (e.g. Google, Meta, etc)",
+                  score: 1,
+                },
+                {
+                  text: "b. Privacy-focused organizations (e.g. NextCloud, Green Host, etc)",
+                  score: 2,
+                },
+                {
+                  text: "c. I self-host or use community-hosted instances (e.g. Riseup, May First, etc)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "File Storage & Cloud Services",
+          items: [
+            {
+              text: "Where do you store your personal files and backups?",
+              options: [
+                {
+                  text: "a. Cloud services (e.g. Google Drive, iCloud, Dropbox)",
+                  score: 1,
+                },
+                {
+                  text: "b. Privacy-focused or open-source alternatives (e.g., pCloud, Tresorit, Nextcloud via a provider) ",
+                  score: 2,
+                },
+                {
+                  text: "c. Self-hosted solutions (e.g., Nextcloud on your own server, IPFS, Filecoin) ",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Software & Tools",
+          items: [
+            {
+              text: "What type of software do you use most?",
+              options: [
+                {
+                  text: "a. Proprietary software (e.g., MS Office, Adobe, Zoom, Notion)",
+                  score: 1,
+                },
+                {
+                  text: "b. Hosted open-source apps (e.g., LibreOffice, Jitsi)",
+                  score: 2,
+                },
+                {
+                  text: "c. Self-hosted or peer-run tools (e.g., Etherpad, HedgeDoc, etc)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+                { text: "e. A combination of (a), (b), and (c)", score: 2.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Identity",
+          items: [
+            {
+              text: "How do you log into most of your accounts?",
+              options: [
+                { text: "a. Google/Facebook/Apple sign-in", score: 1 },
+                { text: "b. Email/password with 2FA", score: 2 },
+                {
+                  text: "c. Decentralized identity (e.g., DID, ENS, Web3 wallet)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+            {
+              text: "Who owns your online identity and profiles?",
+              options: [
+                {
+                  text: "a. Corporate platforms (e.g. Facebook, Instagram, LinkedIn)",
+                  score: 1,
+                },
+                {
+                  text: "b. Independent websites or community platforms ",
+                  score: 2,
+                },
+                {
+                  text: "c. Self-hosted blog, personal domain, or on-chain identity",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Social Media & Content Sharing",
+          items: [
+            {
+              text: "What platforms do you use to share content?",
+              options: [
+                {
+                  text: "a. Instagram, Twitter/X, TikTok, YouTube, Medium, etc ",
+                  score: 1,
+                },
+                {
+                  text: "b. Federated platforms (e.g. Bluesky, Mastodon, PeerTube)",
+                  score: 2,
+                },
+                {
+                  text: "c. Self-hosted, own website, blog, or decentralized publishing (e.g., self-hosted Ghost, IPFS, ActivityPub networks)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Finance",
+          items: [
+            {
+              text: "What tools do you use for online payments?",
+              options: [
+                {
+                  text: "a. Credit cards, PayPal, Apple Pay, mobile banking",
+                  score: 1,
+                },
+                { text: "b. Revolut, crypto via custodial wallets", score: 2 },
+                {
+                  text: "c. Non-custodial crypto wallets, barter, mutual credit",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+            {
+              text: "Who holds custody of your digital assets?",
+              options: [
+                { text: "a. Banks or third-party exchanges", score: 1 },
+                {
+                  text: "b. Non-custodial wallets or hardware wallets",
+                  score: 2,
+                },
+                {
+                  text: "c. I participate in community treasuries or DAOs ",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Governance",
+          items: [
+            {
+              text: "Do you participate in digital decision-making communities?",
+              options: [
+                {
+                  text: "a. No, I'm passive user on corporate platforms",
+                  score: 1,
+                },
+                {
+                  text: "b. Yes, I'm a contributor to open-source projects or forums ",
+                  score: 2,
+                },
+                {
+                  text: "c. Yes, I'm active in DAOs, community moderation, governance processes (e.g., in a DAO, coop, or contributor circle)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Data Ownership",
+          items: [
+            {
+              text: "Can you export and move your data?",
+              options: [
+                { text: "a. No, it's locked in platforms ", score: 1 },
+                { text: "b. I can export but rarely do it", score: 2 },
+                {
+                  text: "c. I regularly back up or migrate my data across services",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+              ],
+            },
+            {
+              text: "Do you know where your data is stored?",
+              options: [
+                { text: "a. Not really", score: 1 },
+                { text: "b. I have a general idea", score: 2 },
+                {
+                  text: "c. I track and manage data access actively",
+                  score: 3,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          section: "Lifestyle",
+          items: [
+            {
+              text: "How do you shop online?",
+              options: [
+                {
+                  text: "a. Amazon, Shopee, Lazada, Wholefoods, other e-commerce platforms and corporate marketplaces",
+                  score: 1,
+                },
+                {
+                  text: "b. Independent shops using Stripe or PayPal",
+                  score: 2,
+                },
+                {
+                  text: "c. Direct from creators, cooperatives and farmers using crypto or alternative payments",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+                { text: "e. A combination of (a), (b), and (c)", score: 2.5 },
+              ],
+            },
+            {
+              text: "How do you access entertainment?",
+              options: [
+                { text: "a. Netflix, Spotify, Steam, YouTube, etc", score: 1 },
+                {
+                  text: "b. Purchased media, DRM-free platforms (e.g. Bandcamp, itch.io)",
+                  score: 2,
+                },
+                {
+                  text: "c. Peer-to-peer sharing, community streaming (e.g. Funkwhale), self-hosted libraries (e.g. Jellyfin, IPFS)",
+                  score: 3,
+                },
+                { text: "d. A combination of (a) and (b)", score: 1.5 },
+                { text: "e. A combination of (a), (b), and (c)", score: 2.5 },
+              ],
+            },
+          ],
+        },
+      ];
+
+      const form = document.getElementById("quiz-form");
+
+      questions.forEach((section, i) => {
+        const sectionHeader = document.createElement("h2");
+        sectionHeader.textContent = `Part ${i + 1}: ${section.section}`;
+        form.appendChild(sectionHeader);
+
+        section.items.forEach((item, j) => {
+          const div = document.createElement("div");
+          div.classList.add("question");
+          div.innerHTML =
+            `<h3>${item.text}</h3>` +
+            item.options
+              .map((opt, k) => {
+                return `<label><input type="radio" name="q${i}_${j}" value="${opt.score}" required> ${opt.text}</label>`;
+              })
+              .join("");
+          form.appendChild(div);
+        });
+      });
+
+      function calculateScore() {
+        const formData = new FormData(form);
+        let score = 0;
+        for (const [key, value] of formData.entries()) {
+          score += parseInt(value);
+        }
+
+        let result = "";
+        if (score <= 16) {
+          result = `🧸 The Cozy Captive\n\nYou are the Cozy Captive, or an avarage Internet user, just like the majority of us inhabiting this planet. Your Netflix algorithm knows you better than your best friend. Your digital life runs smoothly (until it doesn't), and your inbox is full of “security update” emails you didn't ask for.
+
+You live in the warm, fuzzy blanket of Big Tech—everything is synced, shared, backed up, and beautifully branded. But beneath that glossy surface, your data is being mined like it's a rare earth mineral.
+
+You are not necessarily choosing centralization—it is just what was there when you opened the box. That said, awareness is a step toward liberation and you are on the right path. 
+
+    ✨ Vibes: Auto-sync everything, Google knows your shoe size, sponsored by 17 trackers and a cookie banner`;
+        } else if (score <= 25) {
+          result = `🥸 The Double Agent\n\nYou are the Double Agent, straddling two worlds. You cautiously explore freedom while testing out your digital sea legs.
+
+You've started using encrypted email, maybe dabbled in Mastodon, and finally downloaded a password manager. But there is still a Google Doc open somewhere with your entire life inside. You read the privacy policies (or at least skim them), and you know what a VPN is, but sometimes you just…forget.
+
+You know decentralization is important, but let's be real: you still need to join Zoom meetings and send files via WeTransfer. You are in the tension between values and convenience — and that is okay. This is where most folks are. 
+
+    ✨ Vibes: Slightly paranoid, beautifully inconsistent, Signal for work, Google Docs for everything else; regularly clears cookies “just in case.`;
+        } else if (score <= 35) {
+          result = `👩🏻‍🎤 The Intentional Rebel\n\nYou are the Intentional Rable — values-driven, actively reducing reliance on Big Tech, digitally literate with just a hint of righteous fire.
+
+You actively choose tools and services that prioritize user agency, decentralization, or open-source principles. You may still depend on centralized systems in specific areas (e.g. payments or work tools)—but you are knowledgeable and discerning.
+
+You make conscious choices about how and where you exist online. You've got your data backed up in triplicate and probably run open-source software just for fun. To you, living fully decentralized is a journey, not a checkbox.
+
+    ✨ Vibes: open-source maximalist, data hygiene enthusiast, kind digital witch with good OPSEC, password manager power user who drinks fair trade tea, lives on open tabs, uses Mastodon and has a Spotify playlist jamming in the background
+`;
+        } else {
+          result = `🦄 The Sovereign Unicorn\n\nYou are the Sovereign Unicon. You are not just a user of the web — you are a co-creator of it.
+
+        You've pieced together a digital ecosystem rooted in autonomy, community, and joyful resistance. You likely run your own services (because you can), participate in governance processes (because you care), and help others demystify the path to digital sovereignty.
+
+You're off the grid but online. Your setup may not be the flashiest — but it is resilient, privacy-respecting, and built on your terms. From running your own mesh network, brewing kombucha, to hosting a blog from a solar-powered Raspberry Pi named “Hermes.” —You don't just decentralize for the sake of it, but because you believe in a more just and equitable internet, where tools serve people, not platforms.
+
+    ✨ Vibes: Per-to-peer pride, full-stack wizard, one-part sysadmin, one-part community weaver; p one foot in the future and one hand in a Linux command line. Your digital life is a commons — and you tend it like a garden.
+`;
+        }
+
+        document.getElementById("result-text").innerText = result;
+        document.getElementById("results").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
