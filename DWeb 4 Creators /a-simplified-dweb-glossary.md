@@ -308,7 +308,9 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 **Zero Knowledge:**
 
 
-**51% Attack:** A single entity (or group) gains control of more than half of the mining hash rate or computational power of a blockchain. This dominance allows them to disrupt the consensus of a network
+## Others 
+
+**51% Attack:** A single entity (or group) gains control of more than half of the mining hash rate or computational power of a blockchain. This dominance allows them to disrupt the consensus of a network.
 
 
 
