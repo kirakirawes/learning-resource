@@ -2,7 +2,7 @@
 
 This is a live and non-comprehensive list of terms and phrases commonly used in the DWeb ecosystem. It also includes basic concepts relevant to computer networking and the Internet.
 
-Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by the Gray Area with support from the [Filecoin Foundation for the Decentralized Web](https://ffdweb.org/).
+Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by the Gray Area with support from the Filecoin Foundation for the Decentralized Web.
 
 
 ----
@@ -11,9 +11,11 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 ## A
 
-**Adoption**:  Integration of a new technology, programming language, or methodology into an organization or by a group of users
+**ActivityPub**: A decentralized social networking protocol that provides a client/server API for creating, updating, and deleting content, and a federated server-to-server API for delivering notifications and content.
 
-**Computer**: A device that can perform calculations according to a set of predetermined instructions, usually including processing information. These instructions can be embodied in the physical design of the device itself or provided externally.
+**Adoption**: Integration of a new technology, programming language, or methodology into an organization or by a group of users
+
+**Authenticated Transfer Protocol (AT Protocol)**: A protocol for large-scale distributed social applications developed by Bluesky, focusing on account portability and algorithmic choice.
 
 
 ## B
@@ -24,6 +26,8 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **BitTorrent**: A communication protocol for peer-to-peer file sharing which enables users to distribute data and electronic files over the Internet in a decentralized manner. There are many clients one can use to access the BitTorrent protocol such as Transmission, qTorrent, or µTorrent
 
+**Briar**: A secure messaging app designed for activists, journalists, and anyone who needs a safe way to communicate, using direct Bluetooth or WiFi connections when internet access is unavailable.
+
 **Byzantine Generals' Problem**: The challenge of coordinating a group facing unreliable communication. Even with conflicting messages, the generals (like blockchain nodes) must agree on a common action (like transaction validity) to achieve their goal
 
 **Byzantine Fault Tolerance (BFT)**): Allows a system to agree on validation even when some nodes are unreliable or malicious by comparing data.
@@ -33,13 +37,18 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Centralized Network**: Devices (nodes) communicate and access resources through a central server. The central server acts as a hub, controlling data flow and user access.
 
-**CID (Content Identifier)**: A unique fingerprint in IPFS for a data block, acting as the address for finding that specific piece of information anywhere in the decentralized network.
+**Community Networks**: Local telecommunications infrastructures built, owned, and operated by communities, often in rural or underserved areas, using decentralized technologies.
+
+**Computer**: A device that can perform calculations according to a set of predetermined instructions, usually including processing information. These instructions can be embodied in the physical design of the device itself or provided externally.
+
+**Content Identifier (CID)**: A unique fingerprint in IPFS for a data block, acting as the address for finding that specific piece of information anywhere in the decentralized network.
 
 **Content Addressible**: A piece of data that can be queried or referenced by what it contains
 
 **Consensus Algorithms**: A mechanism by which nodes in the network agree on the current state of the system. In a blockchain contect, this means validating new transactions or blocks. It ensures that all participants in the network have access to the same copy of the blockchain, preventing double-spending and maintaining data integrity.​​​​​​​
 
 **Content Delivery Networks (CDNs)**: Are geographically distributed networks of servers that host and deliver content, such as images, videos, or other streaming media, to users' federated network
+
 
 **Cryptography**: Practice for secure communication usually consists of two techniques: signing and encryption
 
@@ -85,6 +94,8 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Federated Network**: A network structure that combines aspects of centralized and decentralized networks. It consists of multiple independent sub-networks (nodes or groups) that agree to follow a common set of rules and protocols enforced by a central management framework. This framework facilitates communication and resource sharing between the sub-networks while still allowing them some degree of autonomy.
 
+**Friend-to-Friend**: A type of private peer-to-peer network where connections and data sharing occur only between trusted friends or acquaintances. In an F2F network, users directly communicate with one another, enhancing the security and privacy of the shared data. This network model is mainly used in file sharing, social networking, and private communication applications. The term was coined by Dan Bricklin in 2000.
+
 **Fungible Token**: Interchangeable, individual units that can be exchanged one-to-one with any other unit of the same kind. Examples outside of cryptocurrency include dollars, stock, and unopened cans of soda.
 
 ## G
@@ -101,6 +112,10 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 **Hash:** A hash function is like a fingerprint for digital data. It takes information, like a text file or image, and crunches it through a mathematical formula. This formula outputs a unique fixed string of numbers and letters, called a hash value or hash, that acts as a summary of its bits.
 
 **Hierarchical Deterministic Wallet**: Wallet software that uses a single Master or Parent Private Key to deterministically derive nearly infinite child keys. The child keys can be recovered by anyone with access to the parent but cannot be traced back to it by an outside observer.
+
+**Holepunching**: A technique used in peer-to-peer communications to establish direct connections between devices behind NAT firewalls or routers.
+
+**Hyperboria**: A global decentralized network built with cjdns that creates encrypted connections between nodes using public-key cryptography for routing.
 
 **Hypercore**: An open-source, peer-to-peer technology stack that allows people to connect and share data seamlessly across the planet, all without servers
 
@@ -119,6 +134,8 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 **Interoperable**: When two systems are able to exchange and make use of information from each other
 
 **Inter-Plantetary File System (IPFS)**: IPFS is a peer-to-peer web storage system that breaks down files into unique blocks, storing them securely across a network of computers. IPFS uses hash functions to ensure data integrity and redundancy, making it more resistant to censorship and data loss.
+
+**Internet Corporation for Assigned Names and Numbers (ICANN)**: The global organization responsible for coordinating the Internet's unique identifier systems, including domain names and IP addresses. Founded in 1998, it operates as a non-profit public-benefit corporation maintaining the stability and security of the Internet's core infrastructure.
 
 **The Internet Engineering Task Force (IETF)**: Creates and publishes standards for Internet protocol suite (TCP/IP)
 
@@ -149,11 +166,13 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Leased Proof of Stake (LPoS)**: Token holders lease their stake to validators without transferring ownership of the tokens. This enables token holders to participate in the consensus process and earn rewards while retaining control over their tokens.​​​​​​​ Example: Waves blockchain
 
-
-
 **Liquid Proof of Stake (LPoS):** Allows token holders to delegate their stake to validators while keeping their tokens liquid, meaning they can be moved or spent without being locked for a specific period. This system combines the security benefits of staking with liquidity for token holders. _Example_: Tezos
 
+**LoRaWAN (Long Range Wide Area Network)**: A low-power, wide-area networking protocol built on LoRa technology, allowing for long-range communications at a low bit rate, useful for IoT and decentralized sensing networks.
+
 ## M 
+
+**Mobile Ad-hoc Network (MANET)**: A continuously self-configuring, infrastructure-less network of mobile devices connected wirelessly, where each device can move independently in any direction.
 
 **Master Private Key (Cryptocurrency)**: A private key used to derive many child keys, which cannot be traced back to the original parent by an outside observer (see also Hierarchical Deterministic Wallet).
 
@@ -169,11 +188,13 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Mining (PoW)**: Mining is the work of maintaining a blockchain: validating transactions, performing hash calculations to search for and generate new blocks, and participating in consensus. Mining is performed simultaneously by many miners in a competitive process. Successful miners earning a block reward and transaction fees.​​​​​​​
 
-
+**Message Queuing Telemetry Transport (MQTT)**: A lightweight messaging protocol designed for constrained devices and unreliable networks, using a publish-subscribe model to efficiently transmit data between IoT devices. Things applications due to its minimal bandwidth requirements and reliable message delivery system.
 
 ## N 
 
 **Network**: A collection of interconnected devices that can share resources and communicate with each other according to a set of communication protocols.
+
+**NAT Traversal**: Techniques for establishing and maintaining connections through Network Address Translation (NAT) gateways, fundamental for peer-to-peer communication.
 
 **Net Neutrality:** The principle that no data online is advantaged or disadvantaged, in terms of access or flow. The closer you can get to net neutrality, the better for a Decentralized Web. 
 
@@ -187,9 +208,21 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Non-Fungible Token (NFT)**: ​​​​​​​Tokens with unique identifiers and other metadata that cannot be necessarily exchanged one-to-one with each other.​​​​​​​ Examples outside of cryptocurrency include artworks, houses, and used bicycles.
 
+**Notes and Other Stuff Transmitted by Relays (Nostr)**: A simple, open protocol for creating censorship-resistant social media platforms using decentralized relays and public key cryptography.
+
 
 
 ## O 
+
+**Optimized Link State Routing Protocol (OLSR)**: A routing protocol optimized for mobile ad hoc networks that proactively maintains routes to all destinations in the network.
+
+**Onion Routing**: A technique for anonymous communication over a network where messages are encapsulated in multiple layers of encryption, used in networks like Tor.
+
+**OpenWrt**: A Linux operating system targeting embedded devices, commonly used in mesh networking applications and community networks.
+
+**Open Systems Interconnection (OSI) Model**: A conceptual framework that standardizes network communication functions into seven distinct layers, from physical transmission at the bottom to application interfaces at the top. Each layer serves a specific purpose and interacts only with the layers directly above and below it, allowing different network technologies to interoperate by providing standard interfaces between disparate systems and simplifying both network design and troubleshooting.
+
+**Opportunistic Networking**: A type of networking where devices communicate whenever they are within range of each other, useful in areas with intermittent connectivity.
 
 **Oracle**: A bridge that retrieves external data or fulfills requests like API calls (usually both still centralized even in the case of a Decentralized Oracle Network (DON)) to feed information to decentralized infrastructures, enabling them to make automated decisions with this external data.
 
@@ -197,6 +230,10 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 ## P 
 
 **Packet**: A network packet is a unit of data that consists of headers, that specify routing and other kinds of information, and content. A packet is made up of text-based headers and then either text or binary data (0's and 1's).
+
+**PatchWork**: A secure, distributed social network built on the peer-to-peer Secure Scuttlebutt protocol, designed to work with or without internet access.
+
+**Peering**: The voluntary interconnection of administratively separate networks for the purpose of exchanging traffic between users of each network.
 
 **Peers**: A specific type of node that has an equal relationship with other nodes. They can communicate directly with each other and share resources or data. All peers are nodes but not all nodes are peers.
 
@@ -224,14 +261,22 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Public Key:** The part of a keypair that can be used by others to verify a signature
 
+**PubSub (Publish-Subscribe)**: A messaging pattern where senders (publishers) categorize messages into classes that subscribers can register interest in, enabling loosely coupled systems in distributed architectures.
+
 
 ## Q 
 
 **Quick UDP Internet Connections (QUIC)**:  Uses multiple, speedy UDP connections but in a manner that is reliable and accurate, like TCP
 
+**Quorum**: The minimum number of participants that must agree for a decision to be valid in a decentralized system.
+
 ## R
 
+**Radio Mesh Networks**: Networks that use radio technology to connect nodes without requiring fixed infrastructure, often employed in disaster response or rural connectivity.
+
 **Replication**: The process of creating and maintaining multiple copies of data in different locations on a network.
+
+**Relay**: A node that helps connect users who cannot directly connect to each other in a peer-to-peer network.
 
 **Router**: Routers are devices used to connect different networks and route traffic in between them. Routers direct IP packets, the pieces of data that make up internet traffic, from one network to another.
 
@@ -246,9 +291,13 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Seedphrase/mnemonic phrase**​​​​​​​: A human-readable version of private key to a digital wallet, typically consisting of 12 or 24 "randomly" chosen words.
 
+**Self-hosted**: Software or services that users install and operate on their own hardware rather than relying on third-party providers, enhancing control and privacy.
+
 **Self-Sovereign Identity (SSI)**: A particular model of identity in which subjects of identity are able to express their identities autonomously and to control their identities on their own terms when interacting & communicating with other subjects irrespective of context.
 
 **Server**: Nodes that provide services over a network are called servers. A server is a node that accepts connections from other nodes on a network and usually transmits, receives, or processes information as a service or application.
+
+**Sharding**: A database partitioning technique used to improve scalability by dividing the network into smaller parts called shards.
 
 **Sidechain**: a separate blockchain that runs in parallel to a main blockchain, allowing for increased scalability and experimentation while still being securely attached to the main chain through two-way pegging. Unlike layer two solutions that operate on top of the main chain, sidechains are independent blockchain networks that can have different rules, consensus mechanisms, and governance models, while still enabling the transfer of assets between the main chain and sidechain.
 
@@ -257,6 +306,8 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 **Smart Contract:** Programs of any kind stored on a blockchain, such as Ethereum, Tezos, or Cosmos. Some blockchains such as Bitcoin do not support full smart contracts. Smart contracts often provide the foundation and logic for token creation and management​​​​​​​.
 
 **Staking:** Staked cryptocurrency acts like a security deposit, incentivizing validators to behave honestly and contribute to the network's security. If validators behave dishonestly, they may lose some or all of their stake. On some networks, validators with larger stakes have a higher chance of being chosen to validate transactions and earn rewards.
+
+**Store-and-Forward Networking**: A telecommunications technique where data is sent to an intermediate node where it's temporarily stored before being forwarded to the next node, useful in networks with intermittent connectivity.
 
 **Sybil Attack**: An attack which disrupts a system by creating a large number of fake identities. This allows the attacker to unfairly influence the system through a swarm of seemingly legitimate accounts, manipulating voting power or flooding the network with noise.
 
@@ -267,6 +318,8 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 ## T 
 
 **Token**: Digital units of value that represent something/anything specific​​​​​​​
+
+**The Onion Router (TOR)**: A network of virtual tunnels that allows people to improve their privacy and security on the internet by routing encrypted traffic through multiple servers.
 
 **Torrent file**: A file that tells your computer the names, sizes, and verification hashes of the files you want to access via the BitTorrent protocol.​
 
@@ -297,8 +350,13 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 
 **Web 2.0**: User-generated content, host-generated authority. Content was user-generated and social interaction was now facilitated through centralized platforms that streamlined content creation. However, the shift in authority from individual hosts to these platforms raises concerns about user control over data and content.
 
+**WebRTC**: A free, open-source project providing web browsers and mobile applications with real-time communication capabilities via simple APIs, enabling peer-to-peer connections without requiring plugins or downloads.
+
+**Whisper**: A communication protocol in the Ethereum stack that allows for secure, low-level messaging between nodes.
+
 ## X
 
+**XMPP (Extensible Messaging and Presence Protocol)**: An open communication protocol designed for instant messaging, presence information, and contact list maintenance, serving as the foundation for many decentralized messaging platforms.
 
 ## Y
 
@@ -308,9 +366,7 @@ Created for the [DWeb for Creators](https://grayarea.org/course/dweb/) course by
 **Zero Knowledge:**
 
 
-## Others 
-
-**51% Attack:** A single entity (or group) gains control of more than half of the mining hash rate or computational power of a blockchain. This dominance allows them to disrupt the consensus of a network.
+**51% Attack:** A single entity (or group) gains control of more than half of the mining hash rate or computational power of a blockchain. This dominance allows them to disrupt the consensus of a network
 
 
 
@@ -348,4 +404,4 @@ __________________
 
 getdweb.net, decentpatterns.com, How The Internet Really Works (Article 19), Jolocom, Indigenous Data Sovereignty: Toward An Agenda, Wikipedia Computer Science, Jay Graber
 
-_Last updated: 8 April 2025_
+_Last updated: 20 April 2025_
